@@ -1,61 +1,154 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#fff"><meta name="description" content="Guía de soporte de Taurus: instalación, configuración y uso de sus funciones.">
-<title>Soporte para Taurus</title>
-<link rel="icon" href="./logo.svg" type="image/svg+xml">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Learn how to enable, configure and use AutoMix.">
+<title>AutoMix Support</title>
 <style>
 :root{color-scheme:light;--ink:#1d1d1f;--muted:#6e6e73;--blue:#06c;--line:#d2d2d7;--soft:#f5f5f7}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1040px;margin:auto;padding:0 28px}
-header{text-align:center;padding:42px 20px 76px}.appicon{width:150px;height:150px;margin:0 auto 34px;display:block;border-radius:34px;box-shadow:0 5px 22px #00000012}
-h1{font-size:clamp(38px,6vw,58px);line-height:1.08;letter-spacing:-.045em;font-weight:650;margin:0}.subtitle{font-size:21px;line-height:1.5;color:var(--muted);max-width:650px;margin:18px auto 0}
-main{padding-bottom:80px}.section{padding:0 0 54px;margin-bottom:48px;border-bottom:1px solid var(--line)}.section:last-child{border:0}
-.row{display:grid;grid-template-columns:78px 1fr;gap:22px;align-items:start;margin:0 0 36px}.row:last-child{margin-bottom:0}
-.icon{width:66px;height:66px;border-radius:19px;background:#8e8e93;display:grid;place-items:center;color:#fff}.icon.blue{background:linear-gradient(145deg,#5ac8fa,#3478f6)}.icon.dark{background:#252525}.icon svg{width:37px;height:37px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-h2{font-size:30px;letter-spacing:-.025em;margin:0 0 28px;font-weight:650}h3{font-size:23px;letter-spacing:-.02em;margin:0 0 10px;font-weight:620}.row p{font-size:18px;line-height:1.55;color:#424245;margin:0 0 12px}.links{font-size:18px;line-height:1.6}.links a{display:inline-block;margin:4px 18px 0 0}
-.note{background:var(--soft);border-radius:16px;padding:20px 22px;margin-top:20px;color:#424245;font-size:16px;line-height:1.55}
-.steps{counter-reset:step;list-style:none;padding:0;margin:12px 0 0}.steps li{counter-increment:step;position:relative;padding:0 0 20px 44px;font-size:18px;line-height:1.55;color:#424245}.steps li:before{content:counter(step);position:absolute;left:0;top:0;width:29px;height:29px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:650;color:var(--ink);font-size:15px}
-details{border-top:1px solid var(--line);padding:18px 0}details:last-child{border-bottom:1px solid var(--line)}summary{font-size:18px;font-weight:600;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}summary:after{content:"+";float:right;color:var(--muted);font-size:23px}details[open] summary:after{content:"−"}details p{font-size:17px;line-height:1.55;color:#424245;max-width:850px}
-footer{text-align:center;padding:32px 20px 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
-@media(max-width:600px){header{padding:32px 16px 58px}.appicon{width:124px;height:124px;border-radius:29px;margin-bottom:28px}.subtitle{font-size:18px}.wrap{padding:0 22px}.row{grid-template-columns:58px 1fr;gap:16px;margin-bottom:30px}.icon{width:54px;height:54px;border-radius:16px}.icon svg{width:30px;height:30px}h2{font-size:26px;margin-bottom:24px}h3{font-size:20px}.row p,.links,.steps li{font-size:16px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.hero{text-align:center;padding:48px 22px 76px}
+.hero-icon{width:132px;height:132px;border:1px solid #e5e5e7;border-radius:32px;margin:0 auto 32px;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#f7f7f8);box-shadow:0 5px 22px #0000000b}
+.hero-icon svg{width:65px;height:65px;fill:none;stroke:#1d1d1f;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+h1{font-size:clamp(40px,6vw,58px);line-height:1.08;letter-spacing:-.045em;font-weight:650;margin:0}
+.subtitle{font-size:21px;line-height:1.5;color:var(--muted);max-width:660px;margin:18px auto 0}
+.wrap{max-width:1000px;margin:0 auto;padding:0 30px 72px}
+.section{padding:0 0 48px;margin:0 0 48px;border-bottom:1px solid var(--line)}
+.section:last-child{border:0;margin-bottom:0}
+h2{font-size:30px;letter-spacing:-.03em;margin:0 0 30px;font-weight:650}
+.row{display:grid;grid-template-columns:78px 1fr;gap:22px;align-items:start;margin:0 0 34px}
+.row:last-child{margin-bottom:0}
+.icon{width:66px;height:66px;border-radius:19px;background:#8e8e93;display:grid;place-items:center;color:white}
+.icon.blue{background:linear-gradient(145deg,#5ac8fa,#3478f6)}
+.icon.dark{background:#242426}
+.icon svg{width:35px;height:35px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+h3{font-size:23px;letter-spacing:-.02em;margin:0 0 10px;font-weight:620}
+.row p{font-size:18px;line-height:1.58;color:#424245;margin:0 0 12px}
+.row p:last-child{margin-bottom:0}
+.steps{counter-reset:step;list-style:none;padding:0;margin:14px 0 0}
+.steps li{counter-increment:step;position:relative;padding:0 0 18px 44px;font-size:18px;line-height:1.55;color:#424245}
+.steps li:last-child{padding-bottom:0}
+.steps li:before{content:counter(step);position:absolute;left:0;top:0;width:29px;height:29px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-weight:650;color:var(--ink);font-size:15px}
+.callout{background:var(--soft);border-radius:18px;padding:20px 22px;margin-top:20px;color:#424245;font-size:16px;line-height:1.6}
+.callout strong{color:var(--ink)}
+.pill{display:inline-block;background:#f0f0f2;border-radius:7px;padding:2px 8px;font-size:.88em;color:#303034;white-space:nowrap}
+details{border-top:1px solid var(--line);padding:18px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{font-size:18px;font-weight:600;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";float:right;color:var(--muted);font-size:23px}
+details[open] summary:after{content:"−"}
+details p{font-size:17px;line-height:1.58;color:#424245;max-width:850px;margin:14px 0 0}
+footer{text-align:center;padding:30px 20px 46px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media(max-width:600px){
+ .hero{padding:34px 18px 58px}.hero-icon{width:112px;height:112px;border-radius:28px;margin-bottom:26px}
+ .subtitle{font-size:18px}.wrap{padding:0 22px 56px}
+ .row{grid-template-columns:56px 1fr;gap:16px;margin-bottom:29px}
+ .icon{width:54px;height:54px;border-radius:16px}.icon svg{width:29px;height:29px}
+ h2{font-size:26px;margin-bottom:24px}h3{font-size:20px}
+ .row p,.steps li{font-size:16px}
+}
 </style>
 </head>
 <body>
-<header><img class="appicon" src="./logo.svg" alt="Logotipo de Taurus"><h1>Soporte para Taurus</h1><p class="subtitle">Todo lo que necesitas para instalar, configurar y aprovechar Taurus en tu iPhone.</p></header>
+<header class="hero">
+  <div class="hero-icon" aria-hidden="true">
+    <svg viewBox="0 0 64 64"><path d="M27 45V14l25-6v31"/><path d="M27 18l25-6"/><ellipse cx="18" cy="46" rx="9" ry="6" transform="rotate(-18 18 46)"/><ellipse cx="43" cy="40" rx="9" ry="6" transform="rotate(-18 43 40)"/></svg>
+  </div>
+  <h1>AutoMix Support</h1>
+  <p class="subtitle">A simple guide to setting up AutoMix and enjoying smoother transitions between songs.</p>
+</header>
+
 <main class="wrap">
-<section class="section"><h2>Primeros pasos</h2>
-<div class="row"><div class="icon"><svg viewBox="0 0 48 48"><path d="M24 5v25m0 0 9-9m-9 9-9-9"/><path d="M9 31v8a3 3 0 0 0 3 3h24a3 3 0 0 0 3-3v-8"/></svg></div><div><h3>Instalar Taurus</h3><p>Descarga el archivo IPA disponible en la sección de versiones y ábrelo con un instalador compatible. Sigue los pasos del instalador para firmar e instalar la aplicación en tu dispositivo.</p><div class="links"><a href="https://github.com/arnaupq2/AutomixIPA/releases">Ver versiones disponibles ›</a></div></div></div>
-<div class="row"><div class="icon blue"><svg viewBox="0 0 48 48"><path d="M24 6v36M6 24h36"/><circle cx="24" cy="24" r="19"/></svg></div><div><h3>Confiar en la instalación</h3><p>Si iOS muestra un aviso de desarrollador no verificado, abre Ajustes y entra en General → VPN y gestión de dispositivos. Selecciona el perfil correspondiente y confirma la confianza si aparece esa opción.</p></div></div>
-<div class="row"><div class="icon dark"><svg viewBox="0 0 48 48"><path d="M8 13h32M8 24h32M8 35h20"/><circle cx="36" cy="35" r="4"/></svg></div><div><h3>Primera apertura</h3><p>Abre Taurus y familiarízate con la interfaz. Accede a los ajustes de Taurus desde la propia aplicación.</p></div></div>
+<section class="section">
+  <h2>Before you start</h2>
+  <div class="row">
+    <div class="icon"><svg viewBox="0 0 48 48"><path d="M8 13h32M8 24h32M8 35h32"/><circle cx="18" cy="13" r="4" fill="currentColor" stroke="none"/><circle cx="31" cy="24" r="4" fill="currentColor" stroke="none"/></svg></div>
+    <div><h3>What you need</h3>
+      <p>Make sure AutoMix is set up in the app and that you are listening on this iPhone. Start playback from a playlist or album so another track is waiting in the queue.</p>
+      <div class="callout"><strong>Important:</strong> Turn off Spotify's built-in Crossfade. AutoMix should not be used at the same time as Karaoke or Lossless audio.</div>
+    </div>
+  </div>
 </section>
-<section class="section"><h2>Configurar la aplicación</h2>
-<div class="row"><div class="icon blue"><svg viewBox="0 0 48 48"><path d="M8 14h32M8 24h32M8 34h32"/><circle cx="18" cy="14" r="4" fill="currentColor" stroke="none"/><circle cx="31" cy="24" r="4" fill="currentColor" stroke="none"/><circle cx="22" cy="34" r="4" fill="currentColor" stroke="none"/></svg></div><div><h3>Abrir Mod Settings</h3><p>Abre el apartado Mod Settings de Taurus. Encontrarás las opciones organizadas por secciones: entra en cada una para activar o desactivar funciones, elegir opciones y ajustar controles. Los cambios que se aplican al instante no requieren salir de la pantalla.</p></div></div>
-<div class="row"><div class="icon"><svg viewBox="0 0 48 48"><path d="M24 5 7 13v11c0 10 7 16 17 19 10-3 17-9 17-19V13L24 5Z"/><path d="m16 24 5 5 11-12"/></svg></div><div><h3>Elegir el aspecto</h3><p>En Appearance puedes cambiar entre la interfaz rediseñada y el aspecto original, además de ajustar el color de acento cuando esté disponible. Algunos cambios visuales solicitan reiniciar la aplicación para mostrarse correctamente.</p></div></div>
-<div class="row"><div class="icon dark"><svg viewBox="0 0 48 48"><path d="M24 5a19 19 0 1 0 19 19"/><path d="M24 5v10m0-10 8 5"/><path d="M15 24h18M24 15v18"/></svg></div><div><h3>Personalizar la navegación</h3><p>En Navbar puedes ordenar las pestañas arrastrándolas, ocultar las que no utilices y editar el nombre o el icono de cada una. También puedes añadir accesos directos a páginas y enlaces compatibles.</p></div></div>
+
+<section class="section">
+  <h2>Turn on AutoMix</h2>
+  <div class="row">
+    <div class="icon blue"><svg viewBox="0 0 48 48"><path d="M24 5v38M5 24h38"/><circle cx="24" cy="24" r="19"/></svg></div>
+    <div><h3>Enable the feature</h3>
+      <ol class="steps">
+        <li>Open the app and go to <span class="pill">Mod Settings</span>.</li>
+        <li>Choose <span class="pill">AutoMix</span>.</li>
+        <li>Switch <span class="pill">AutoMix</span> on.</li>
+        <li>Start a playlist or album and let a song play.</li>
+      </ol>
+      <p style="margin-top:16px">AutoMix starts preparing a transition after you have listened to a song for at least <strong>10 seconds</strong>. Keep listening and let the current song reach its ending for the transition to play.</p>
+    </div>
+  </div>
 </section>
-<section class="section"><h2>Usar las funciones</h2>
-<div class="row"><div class="icon blue"><svg viewBox="0 0 48 48"><path d="M7 28c4-14 9-14 13 0s9 14 13 0 6-8 8-3"/></svg></div><div><h3>AutoMix</h3><p>Activa AutoMix desde Mod Settings → AutoMix. Cuando esté habilitado, Taurus preparará las transiciones entre canciones compatibles mientras escuchas música. Puedes seguir reproduciendo, pausar, cambiar de canción o buscar otro punto como haces normalmente.</p><p>Si una transición no puede prepararse, la reproducción continúa de forma normal. AutoMix puede tardar un poco en estar listo después de activar la función.</p></div></div>
-<div class="row"><div class="icon"><svg viewBox="0 0 48 48"><path d="M8 10h32v25H20l-9 7v-7H8z"/><path d="M15 19h18M15 26h13"/></svg></div><div><h3>Letras y traducciones</h3><p>Abre el reproductor y entra en la sección de letras. En los ajustes de Lyrics puedes elegir el orden de las fuentes disponibles, el idioma de traducción y el tamaño relativo de la letra, pronunciación y traducción cuando esas opciones estén disponibles.</p><p>En las letras sincronizadas, toca una línea para saltar a ese momento de la canción. Mantén pulsada una línea para consultar información adicional cuando esté disponible.</p></div></div>
-<div class="row"><div class="icon dark"><svg viewBox="0 0 48 48"><path d="M8 34V14h32v20H8Z"/><path d="m14 28 7-8 6 6 5-5 4 7"/></svg></div><div><h3>Reproductor y pantalla bloqueada</h3><p>Desde Player puedes configurar los controles, gestos y elementos visuales. En Lock Screen puedes escoger el estilo de la pantalla bloqueada y organizar los estilos disponibles. Algunas opciones dependen de la versión de iOS y del contenido que se esté reproduciendo.</p></div></div>
-<div class="row"><div class="icon blue"><svg viewBox="0 0 48 48"><path d="M24 5v38M5 24h38"/><path d="m11 11 26 26M37 11 11 37"/></svg></div><div><h3>Audio y vibraciones</h3><p>En Audio Effects puedes activar efectos y ajustar sus controles. En Vibrations puedes configurar la intensidad de las respuestas hápticas y, si está disponible, Music Haptics. Prueba los ajustes poco a poco hasta encontrar el resultado que prefieras.</p></div></div>
-<div class="row"><div class="icon"><svg viewBox="0 0 48 48"><path d="M8 15h32v25H8z"/><path d="M16 15V9h16v6M15 24h18M15 31h12"/></svg></div><div><h3>Descargas sin conexión</h3><p>Abre Mod Settings → Downloads para consultar el estado de las descargas, iniciar o cancelar una descarga y revisar la información disponible. También puedes utilizar los controles de descarga habituales dentro de la aplicación.</p></div></div>
-<div class="row"><div class="icon dark"><svg viewBox="0 0 48 48"><path d="M8 8h32v32H8z"/><path d="M16 17h16M16 24h16M16 31h10"/></svg></div><div><h3>Actividad en directo</h3><p>En Live Activity puedes activarla y elegir qué mostrar: controles, cola o letras, según las opciones disponibles en tu dispositivo. Los cambios se aplican desde el propio apartado.</p></div></div>
+
+<section class="section">
+  <h2>Choose your transition</h2>
+  <div class="row">
+    <div class="icon dark"><svg viewBox="0 0 48 48"><path d="M7 29c4-14 9-14 13 0s9 14 13 0 6-8 8-3"/><path d="M7 12h34"/></svg></div>
+    <div><h3>AutoMix · 32 beats</h3>
+      <p>Choose <span class="pill">AutoMix · 32 beats</span> for the standard AutoMix transition. This is the default option and is designed to blend the end of one track into the beginning of the next.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="icon blue"><svg viewBox="0 0 48 48"><path d="M7 34h8V14h8v20h8V9h8v25h4"/></svg></div>
+    <div><h3>Spotify transition</h3>
+      <p>Choose <span class="pill">Spotify transition</span> to customise the transition length. Select <strong>2, 4 or 8 bars</strong>. You can also enable <span class="pill">Vocals first</span> to bring the incoming song's vocals in before its instruments.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="icon"><svg viewBox="0 0 48 48"><path d="M8 14h32M8 24h32M8 34h32"/><circle cx="17" cy="14" r="4" fill="currentColor" stroke="none"/><circle cx="30" cy="24" r="4" fill="currentColor" stroke="none"/></svg></div>
+    <div><h3>Adjust when preparation starts</h3>
+      <p>Use <span class="pill">Start preparing</span> to choose how far ahead of the end of a song AutoMix should begin getting the transition ready. You can leave the default value if you are unsure.</p>
+    </div>
+  </div>
 </section>
-<section class="section"><h2>Otras opciones</h2>
-<div class="row"><div class="icon blue"><svg viewBox="0 0 48 48"><path d="M8 24a16 16 0 0 1 28-10l4 4"/><path d="M40 8v10H30"/><path d="M40 24a16 16 0 0 1-28 10l-4-4"/><path d="M8 40V30h10"/></svg></div><div><h3>Buscar actualizaciones</h3><p>En Mod Settings → Mod: Updates puedes consultar la versión instalada, revisar las novedades y comprobar si hay una versión más reciente disponible.</p><div class="links"><a href="https://github.com/arnaupq2/AutomixIPA/releases">Consultar versiones ›</a></div></div></div>
-<div class="row"><div class="icon"><svg viewBox="0 0 48 48"><path d="M8 10h32v28H8z"/><path d="m8 14 16 13 16-13"/></svg></div><div><h3>Abrir enlaces desde Safari</h3><p>Si has instalado la extensión incluida, actívala en Ajustes → Apps → Safari → Extensiones → Open in Spotify y concede permiso para los sitios de Spotify. Después, al abrir un enlace compatible en Safari, podrás enviarlo a Taurus. Safari puede pedir confirmación antes de abrir la aplicación.</p></div></div>
+
+<section class="section">
+  <h2>Check the status</h2>
+  <div class="row">
+    <div class="icon blue"><svg viewBox="0 0 48 48"><path d="M24 7a17 17 0 1 0 17 17"/><path d="M24 2v10m0-10 8 6"/><path d="M15 24h18"/></svg></div>
+    <div><h3>Know when AutoMix is ready</h3>
+      <p>In <span class="pill">Mod Settings → AutoMix</span>, check the <span class="pill">Now</span> status to see what AutoMix is doing. <span class="pill">Last transition</span> shows the result of the most recent attempt.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="icon dark"><svg viewBox="0 0 48 48"><path d="m18 10 20 14-20 14V10Z"/><path d="M9 8v32"/></svg></div>
+    <div><h3>Try it now</h3>
+      <p>Want to check AutoMix without waiting for the whole song? Open the AutoMix settings and tap <span class="pill">Try it now</span>. This moves playback close to the point where preparation begins. The transition will be heard near the end of the song.</p>
+    </div>
+  </div>
 </section>
-<section class="section"><h2>Solución de problemas</h2>
-<details><summary>La aplicación no aparece después de instalar el IPA</summary><p>Comprueba que el proceso de instalación y firma haya terminado correctamente. Si utilizas un instalador alternativo, vuelve a importar el archivo IPA y completa todos los pasos que indique.</p></details>
-<details><summary>Una opción aparece desactivada o no está disponible</summary><p>Algunas funciones dependen de la versión de iOS o de la compatibilidad del dispositivo. Comprueba los requisitos indicados junto a esa opción y asegúrate de utilizar una versión compatible.</p></details>
-<details><summary>Los cambios visuales no aparecen</summary><p>Algunos ajustes de apariencia necesitan que reinicies Taurus. Cierra la aplicación por completo y vuelve a abrirla después de cambiar esas opciones.</p></details>
-<details><summary>AutoMix no prepara una transición</summary><p>Continúa escuchando y comprueba que la función siga activada en Mod Settings → AutoMix. No todas las transiciones pueden prepararse; si no hay una transición disponible, la canción continúa con la reproducción habitual.</p></details>
-<details><summary>Las letras no aparecen</summary><p>Comprueba que la canción tenga letras disponibles y revisa el orden de fuentes en Mod Settings → Lyrics. La disponibilidad y la sincronización pueden variar según la canción.</p></details>
-<details><summary>Safari no abre Taurus automáticamente</summary><p>Revisa que la extensión esté activada y que tenga permiso para el sitio que estás visitando. También puedes utilizar el enlace “Open in Spotify” que aparece en la página; Safari puede requerir una pulsación manual.</p></details>
+
+<section class="section">
+  <h2>Tips for the best experience</h2>
+  <div class="row">
+    <div class="icon"><svg viewBox="0 0 48 48"><path d="M24 5 7 13v11c0 10 7 16 17 19 10-3 17-9 17-19V13L24 5Z"/><path d="m16 24 5 5 11-12"/></svg></div>
+    <div><h3>Keep playback uninterrupted</h3>
+      <p>For the best chance of a transition, keep the playlist or album playing and let the song continue. Skipping to another track or seeking to a different position cancels the pending transition, and normal playback takes over.</p>
+    </div>
+  </div>
 </section>
-<div class="note">¿Necesitas más ayuda? Puedes consultar el repositorio del proyecto para ver las novedades y la información técnica disponible. Esta página se centra en el uso de las funciones y no en los componentes internos.</div>
+
+<section class="section">
+  <h2>Troubleshooting</h2>
+  <details><summary>AutoMix does not start preparing</summary><p>Check that AutoMix is enabled, that you have listened to the current song for at least 10 seconds, and that another track is queued. Make sure the song has enough time remaining for the selected transition.</p></details>
+  <details><summary>The transition does not play</summary><p>Keep Spotify's Crossfade turned off. Make sure Karaoke and Lossless are not active, and avoid skipping or seeking while AutoMix is preparing the transition.</p></details>
+  <details><summary>The next song is not picked up</summary><p>Start playback from a playlist or album and check that a next track is shown in the queue. AutoMix needs a following track to prepare a transition.</p></details>
+  <details><summary>What happens if I skip a song?</summary><p>Skipping or seeking cancels the transition being prepared. Playback continues normally, and AutoMix can prepare again for a later song.</p></details>
+  <details><summary>Where can I see what happened?</summary><p>Open <span class="pill">Mod Settings → AutoMix</span> and check <span class="pill">Now</span> and <span class="pill">Last transition</span> for the current status and latest result.</p></details>
+</section>
 </main>
-<footer>Soporte para Taurus · <a href="https://github.com/arnaupq2/AutomixIPA">Repositorio del proyecto</a></footer>
-</body></html>
+<footer>AutoMix Support</footer>
+</body>
+</html>
